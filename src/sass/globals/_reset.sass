@@ -1,0 +1,21 @@
+html
+  height: 100%
+  box-sizing: border-box
+
+html, body
+	position: relative
+	width: 100%
+	overflow-x: hidden
+
+*
+  box-sizing: inherit
+  &::before, &::after
+    box-sizing: inherit
+
+::selection
+  color: $color-black
+  background-color: $color-selection
+  text-shadow: none
+
+img
+	vertical-align: top

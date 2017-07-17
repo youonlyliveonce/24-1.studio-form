@@ -1,0 +1,82 @@
+{
+	"root": {
+		"domain": "",
+		"appName": "yolo-web-24-1.studio.form",
+		"appDescription": "yolo-web-24-1.studio.form",
+		"appBackground" :"#FFF",
+		"mode": "plain",
+		"plain": {
+			"src": "./src",
+			"dest": "./public/plain",
+			"assets": "/assets",
+			"browserSync": { "server": { "baseDir": "public/plain" } }
+		},
+		"cms": {
+			"src": "./src",
+			"dest": "./public/cms",
+			"assets": "/assets",
+			"browserSync": { "server": { "baseDir": "public/cms" }}
+		}
+	},
+
+	"tasks": {
+		"js": {
+			"src": "javascript",
+			"dest": "assets",
+			"extractSharedJs": false,
+			"entries": {
+				"loader": ["./loader.js"],
+				"app": ["./app.js"],
+				"analytics": ["./analytics.js"]
+			},
+			"extensions": ["js"]
+		},
+
+		"css": {
+			"src": "sass",
+			"dest": "assets",
+			"autoprefixer": {
+				"browsers": ["last 5 version"]
+			},
+			"sass": {
+				"indentedSyntax": true
+			},
+			"extensions": ["sass", "scss", "css"]
+		},
+
+		"pug": {
+			"src": "pug",
+			"render": "pug/pages/**/*.pug",
+			"dest": "./public/plain",
+			"data": {
+				"src": "/pug/",
+				"dest": "/data/",
+				"ext": ".yml"
+			},
+			"lngs":[{
+				"src": "/pug/pages/**/*.pug",
+				"dest": "/public/plain/"
+			}],
+			"extensions": ["pug"],
+			"excludeFolders": ["_layouts", "_svg", "_data"]
+		},
+
+		"favicons": {
+			"src": "/favicons/favicon.png",
+			"dest": "/assets/favicons",
+			"background" :"#FFF"
+		},
+
+		"htdocs": {
+			"src": "/htdocs",
+			"dest": "/"
+		},
+
+		"production": {
+			"cssSrc": "./public/plain/assets/*.css",
+			"jsSrc": "./public/plain/assets/*.js",
+			"dest": "./public/plain/assets/"
+		}
+
+	}
+}

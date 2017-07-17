@@ -1,0 +1,90 @@
+extends ../_layout/_layout
+
+block title
+		title Anmeldung : ATELIER DLC
+
+block content
+	.Contact(class="[ Element ]" data-view="FormView")
+		.Contact__header
+			p Bitte hilf uns bei der Planung und melde Dich zur Atelier DLC Opening Party am 07.09.2017 ab 19:00 Uhr an.
+		.Contact__body
+			.Form
+				-
+					var form = {
+						messages: {
+							success: {
+								headline: "Vielen dank",
+								copy: "Wir haben Ihre Anfrage erhalten und werden uns umgehend bei Ihnen melden."
+							},
+							error: {
+								headline: "es tut uns leid",
+								copy: "Aufgrund eines technischen Fehlers konnte Ihre Anfrage nicht versendet werden. Bitte versuchen Sie es zu einem späteren Zeitpunkt erneut."
+							},
+							invalid: {
+								copy: "Bitte überprüfen Sie Ihre Eingaben in den markierten Feldern."
+								}
+						},
+						fields: [
+							// { type: "radio", variable: "anrede", label: "Anrede", values:[{value:'Herr', label:'Herr'},{value:'Frau', label:'Frau'}], required: "true", style: "full" },
+							// { type: "input", variable: "nachname", label: "Nachname", required: "true", style: "half" },
+							// { type: "input", variable: "city", label: "PLZ, Stadt.",  style: "full" },
+							// { type: "checkbox", variable: "interest", label: "Ich interessiere mich für", values:[{value:'Gartenwohnung', label:'Gartenwohnung'},{value:'Geschosswohnung', label:'Geschosswohnung'},{value:'Penthouse', label:'Penthouse Wohnung'}], required: "true", style: "full" }
+							// ,{ type: "dropdown", variable: "company", label: "Formular verschicken an:", values:[{value:'info@karolinger-wohnen.de', label:'Karolinger', variable:"emailTo"},{value:'interactive@cadman.de', label:'CADMAN', variable:'emailTo'}], style: "full", placeholder: "Bitte wählen" },
+							{ type: "input", variable: "name", label: "Ihr Name", required: "true", style: "full" },
+							{ type: "input", variable: "company", label: "Firma", style: "full" },
+							{ type: "input", variable: "telefon", label: "Telefon", style: "full", required: "true"},
+							{ type: "input", variable: "email", label: "Ihre E-Mail-Adresse", required: "true", style: "full" },
+							{ type: "textarea", variable: "nachricht", label: "Ihre Nachricht",  style: "full" }
+						]
+					}
+				form#contact-form(data-url="/ajax/app.php")
+					.Form-message
+						each item, key in form.messages
+							div(class="Form-message--"+key)
+								h3 #{item.headline}
+								p #{item.copy}
+					.Form-body
+						.emailvalidation
+							label(for="emailvalidation") Email Validation
+							input(title="emailvalidation" type="emailvalidation" name="emailvalidation" placeholder="")
+						each item, key in form.fields
+							.Form-element(class="Form-element--"+item.style)
+								if item.required
+									label(for=""+item.variable) #{item.label} *
+								else
+									label(for=""+item.variable) #{item.label}
+								if item.type == "input"
+									if item.required
+										div
+											input(title=""+item.label type="text" name=""+item.variable placeholder="Bitte angeben" required)
+									else
+										div
+											input(title=""+item.label type="text" name=""+item.variable placeholder="Optional")
+								else if item.type == "textarea"
+									if item.required
+										div
+											textarea(title=""+item.label type="text" name=""+item.variable placeholder="Bitte angeben" required)
+									else
+										div
+											textarea(title=""+item.label type="text" name=""+item.variable placeholder="Optional")
+								else if item.type == "radio" || item.type == "checkbox"
+									.Form-field(class="Form-field--"+item.type)
+										each partial, pkey in item.values
+											if item.required
+												div
+													input(type=""+item.type name=""+item.variable value=""+partial.value required)
+													span #{partial.label}
+											else
+												div
+													input(type=""+item.type name=""+item.variable value=""+partial.value)
+													span #{partial.label}
+								else if item.type == "dropdown"
+									.Form-field(class="Form-field--dropdown")
+										input(readonly, type='text', name=""+item.variable, value=''+item.placeholder)
+										ul
+											each partial, pkey in item.values
+												li(data-key=""+partial.variable data-valueToSet=""+partial.value data-valueToShow=""+partial.label data-linkedTo=""+item.variable) #{partial.label}
+
+						.Form-submit
+							input(type="submit" value="Absenden")
+		

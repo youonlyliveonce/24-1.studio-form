@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'iconset';
+    font-weight: normal;
+    font-style: normal;
+    src: url('fonts/iconset/iconset.eot');
+    src: url('fonts/iconset/iconset.woff2') format('woff2'),
+         url('fonts/iconset/iconset.woff') format('woff'),
+         url('fonts/iconset/iconset.ttf') format('truetype'),
+         url('fonts/iconset/iconset.eot?#iefix') format('embedded-opentype');
+}
+
+.custom[class^="custom-"],
+.custom[class*=" custom-"] {
+    display: inline-block;
+    font-family: 'iconset';
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-transform: none;
+}
+
+$icons: (
+    icon-close: '\EA01'
+);
+
+@each $name, $icon in $icons {
+    .custom-#{$name}:before {
+        content: $icon;
+    }
+}

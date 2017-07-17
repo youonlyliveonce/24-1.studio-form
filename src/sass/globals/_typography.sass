@@ -1,0 +1,81 @@
+body
+	background-color: $color-background
+	color: $color-text
+	+fontcopy()
+	font-size: 100%
+	line-height: 1.5
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+
+p
+	line-height: 2
+	font-size: rem(16)
+	margin-bottom: 35px
+	+bp(huge)
+		font-size: rem(18)
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+	margin: 0
+	font-size: inherit
+	font-weight: inherit
+	line-height: inherit
+	line-height: 1.3
+	+fontcopy()
+	letter-spacing: 0.1em
+
+h2, h3
+	letter-spacing: 0.05rem
+	line-height: 1.1
+
+h2
+	font-size: rem(28)
+	line-height: 1.1
+	margin-bottom: 25px
+	+bp('medium')
+		font-size: rem(40)
+	+bp('large')
+		margin-bottom: 35px
+		font-size: rem(52)
+	+bp('huge')
+		font-size: rem(80)
+	+bp('huger')
+		margin-bottom: $gap-size-medium*3
+
+h3
+	font-size: rem(18)
+	+fontheadline
+	line-height: 1.4
+	margin-bottom: $gap-size-medium
+	+bp('large')
+		font-size: rem(18)
+		line-height: 2
+		margin-bottom: $gap-size-large
+
+ul,
+ol
+	margin: 0
+	padding: 0
+	list-style: none
+	font-weight: normal
+
+a
+	color: inherit
+	outline: 0
+	text-decoration: none
+	&,
+	&:active,
+	&:hover,
+	&:focus,
+	&:visited
+		outline: 0
+		text-decoration: none
+
+
+
+strong
+	+fontheadline()

@@ -1,0 +1,315 @@
+// Form
+.Form
+	margin-bottom: 30px
+	.emailvalidation
+		visibility: hidden
+		opacity: 0
+		height: 0
+	input
+		width: 100%
+		margin-bottom: 20px
+		border: none
+
+	textarea
+		width: 100%
+		resize: none
+		height: 160px
+		border: none
+		border-top: 1px solid $color-selection
+		border-bottom: 5px solid transparent
+
+	&-submit
+		text-align: center
+
+	input[type="submit"]
+		outline: 0
+		+noselect()
+		width: 100%
+		margin-right: 0 !important
+		box-sizing: border-box
+		-moz-box-sizing: border-box
+		-webkit-box-sizing: border-box
+		display: inline-block
+		+fontheadline
+		color: $color-selection
+		font-size: 1em
+		background-color: transparent
+		border: 2px solid $color-selection
+		line-height: 24px
+		padding: 4px 15px
+		margin-top: 30px
+		margin-left: auto
+		margin-right: auto
+		+transition(background, 0.75s)
+		+bp('medium')
+			width: 200px
+		+bp('large')
+			font-size: 1em
+			line-height: 34px
+			padding: 0 30px
+		&:hover
+			background-color: $color-navigation
+			border-color: $color-navigation
+			color: white
+
+		+transition(all, .2s, ease-in-out)
+
+
+
+	input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"],
+	input[type="time"], input[type="url"], input[type="color"], textarea
+		padding: 10px 10px 10px
+		background-color: rgba(0,0,0,0.05)
+		border-top: 1px solid $color-selection
+		border-bottom: 5px solid transparent
+		box-shadow: none
+		color: black
+		font-size: 1.5em
+		font-weight: 300
+		margin: 0 0 20px
+		width: 100%
+		+transition(all, .2s, ease-in-out)
+		&.input-error
+			color:red
+			border-color: red
+
+	input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="email"]:focus, input[type="number"]:focus,
+	input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="color"]:focus, textarea:focus
+		border: none
+		box-shadow: none
+		background-color: white
+		border-top: 1px solid transparent
+		border-bottom: 5px solid $color-selection
+		box-shadow: none
+		outline: none
+
+
+		input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"],
+		input[type="time"], input[type="url"], input[type="color"], textarea
+			border-bottom: 3px solid red
+			border-color:red
+
+	fieldset
+		border: none
+		padding: 0
+		margin: 0
+
+	legend,
+	label
+		display: block
+		line-height: 3em
+		padding: 0
+		color: $color-selection
+		+fontheadline
+		text-transform: uppercase
+
+	legend
+		+fontcopy
+		color: lighten(black, 20%)
+		position: relative
+		margin-bottom: 10px
+		&:after
+			content: ''
+			position: absolute
+			left: 0
+			bottom: 0
+			right: 0
+			border-bottom: 1px solid ighten(black, 20%)
+
+
+	::-webkit-input-placeholder	/* WebKit browsers */
+			color: grey
+
+	:-moz-placeholder	/* Mozilla Firefox 4 to 18 */
+		 color: grey
+
+	::-moz-placeholder	/* Mozilla Firefox 19+ */
+		 color: grey
+
+	:-ms-input-placeholder	/* Internet Explorer 10+ */
+		 color: grey
+
+	&-element
+		position: relative
+		&:after
+			clear: both
+			content: ''
+			display: table
+		>div
+			div
+				display: inline-block
+			+bp('medium')
+				padding-right: 30px
+		+bp('medium')
+			display: inline-block
+			vertical-align: top
+			margin-right: -4px
+			&--half
+				// float: left
+				width: +unit(6)
+			&--full
+				// float: left
+				width: +unit(12)
+		&.invalid
+			label
+				color: red
+
+	&-field
+		position: relative
+		&--radio,
+		&--checkbox
+			input[type=radio],
+			input[type=checkbox],
+				display: none
+			span
+				margin-bottom: 20px
+				cursor: pointer
+				user-select: none
+				-webkit-tap-highlight-color: rgba(0,0,0,0)
+				display: inline-block
+				margin-right: 20px
+				padding-left: 45px
+				line-height: 31px
+				position: relative
+				&:before
+					content: ''
+					display: inline-block
+					position: absolute
+					left: 0
+					height: 31px
+					width: 31px
+					background-color: $color-selection
+				&:after
+					content: ''
+					display: inline-block
+					position: absolute
+					left: 15px
+					top: 15px
+					height: 0px
+					width: 0px
+					background-color: $color-navigation
+					z-index: 10
+					+transition(all, 0.25s)
+				&:hover
+					&:after
+						left: 4px
+						top: 4px
+						height: 23px
+						width: 23px
+			.isChecked
+				span
+					&:after
+						left: 9px
+						top: 9px
+						height: 13px
+						width: 13px
+						background-color: $color-background
+		&--radio
+			span
+				&:before,
+				&:after
+					+border-radius(25px)
+		&--dropdown
+			position: relative
+
+			input[type="text"]
+				cursor: pointer
+				+noselect()
+				margin: 0 0 2px
+				background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMiIgYmFzZVByb2ZpbGU9InRpbnkiIGlkPSJFYmVuZV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjUwcHgiIGhlaWdodD0iNTBweCIgdmlld0JveD0iMCAwIDUwIDUwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiM2QkIwQUIiIGQ9Ik0wLDBoNTB2NTBIMFYweiIvPjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yNC4yLDE3LjJWMzFsLTMuNC0zLjNjLTAuMy0wLjMtMC44LTAuMy0xLjEsMGMtMC4zLDAuMy0wLjMsMC44LDAsMWw0LjcsNC41YzAuMywwLjMsMC44LDAuMywxLjEsMGw0LjctNC41YzAuMS0wLjEsMC4yLTAuMywwLjItMC41YzAtMC4yLTAuMS0wLjQtMC4yLTAuNWMtMC4zLTAuMy0wLjgtMC4zLTEuMSwwTDI1LjgsMzFWMTcuMmMwLTAuNC0wLjMtMC43LTAuOC0wLjdDMjQuNiwxNi41LDI0LjIsMTYuOCwyNC4yLDE3LjJ6Ii8+PC9zdmc+)
+				background-position: right center
+				background-size: contain
+				background-repeat: no-repeat
+				&:focus
+					padding: 10px 10px 10px
+					background-color: darken($color-selection, 10%)
+					border: 1px solid darken($color-selection, 10%)
+					border-left: 5px solid darken($color-selection, 10%)
+					box-shadow: none
+					color: black
+					font-size: 1.5em
+					font-weight: 300
+			ul
+				height: 0
+				opacity: 0
+				visibility: hidden
+				+transition(opacity, 0.5s)
+				li
+					cursor: pointer
+					padding: 10px 10px 10px
+					border: none
+					box-shadow: none
+					background-color: white
+					border: 1px solid $color-selection
+					border-left: 5px solid $color-selection
+					box-shadow: none
+					outline: none
+					margin-bottom: 1px
+					+transition(background, 0.5s)
+					+noselect()
+					&:hover
+						background-color: darken($color-selection, 10%)
+			&.open
+				ul
+					visibility: visible
+					opacity: 1
+					height: auto
+
+	&-message
+		&--success,
+		&--error,
+		&--invalid,
+			visibility: hidden
+			height: 0
+			opacity: 0
+			+transition(all, 0.35s)
+
+
+
+	&.issent
+		.Form-message
+				&--success
+					p,
+					strong
+						color: green
+
+					// display: block
+					visibility: visible
+					height: auto
+					opacity: 1
+					+transition(all, 0.35s)
+
+					h3
+						color: green
+
+	&.haserror
+		.Form-message
+				&--error
+					p,
+					strong
+						color: red
+
+					// display: block
+					visibility: visible
+					height: auto
+					opacity: 1
+					+transition(all, 0.35s)
+
+					h3
+						color: red
+
+	&.invalid
+		.Form-message
+				&--invalid
+					p,
+					strong
+						color: red
+
+					// display: block
+					visibility: visible
+					height: auto
+					opacity: 1
+					+transition(all, 0.35s)
+
+					h3
+						color: red

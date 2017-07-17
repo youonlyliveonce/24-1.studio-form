@@ -1,0 +1,33 @@
+.Page
+	overflow-y: hidden
+	overflow-x: hidden
+	&__lines
+		pointer-events: none
+		position: fixed
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		>div
+			position: relative
+			max-width: 1600px
+			margin: 0 auto
+
+			width: 100%
+			height: 100%
+			>span
+				width: 1px
+				height: 100%
+				background-color: $color-content
+				opacity: 0.15
+				position: absolute
+				left: 50%
+				&:first-child
+					left: 25%
+				&:last-child
+					left: 75%
+	.view
+		position: relative
+		z-index: 50
+	section
+		position: relative

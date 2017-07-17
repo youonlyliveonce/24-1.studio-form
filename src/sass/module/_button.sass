@@ -1,0 +1,89 @@
+.Button
+	&--toggle
+		position: absolute
+		top: 0px
+		right: 0px
+		width: 50px
+		height: 48px
+		z-index: 5
+		cursor: pointer
+		background-color: $color-navigation
+		+bp('large')
+			display: none
+		span
+			position: absolute
+			top: 50%
+			left: 20%
+			display: block
+			width: 60%
+			height: 2px
+			margin-top: -0.15rem
+			background-color: white
+			+noselect()
+			+transition(all, .3s)
+			&:after,
+			&:before
+				position: absolute
+				left: 0
+				width: 100%
+				height: 100%
+				background-color: white
+				content: ''
+				display: block
+			&:after
+				+transition(transform, .3s)
+			&:before
+				+transition(transform, .3s)
+				+transform(translateY(-0.5rem))
+			&:after
+				+transform(translateY(0.5rem))
+		&:hover span
+			+transform(rotate(90deg))
+			&:before
+				+transform(rotate(90deg))
+			&:after
+				+transform(rotate(90deg))
+	&--close
+		+bp('large')
+			display: none
+		position: absolute
+		width: 50px
+		height: 50px
+		top: 0px
+		right: 0px
+		padding: 5px
+		z-index: 9999
+		cursor: pointer
+		+noselect()
+		span
+			position: absolute
+			top: 50%
+			left: 20%
+			display: block
+			width: 60%
+			height: 0.15rem
+			background-color: white
+			visibility: hidden
+			+noselect()
+			+transition(transform, .35s)
+			&:after,
+			&:before
+				position: absolute
+				content: ''
+				width: 100%
+				height: 100%
+				visibility: visible
+				background: white
+				left: 0
+			&:after
+				+transform(rotate(45deg))
+				+transition(transform, .5s)
+			&:before
+				+transform(rotate(-45deg))
+				+transition(transform, .5s)
+		&:hover span
+			+transform(rotate(180deg))
+			&:before
+				+transform(rotate(0deg))
+			&:after
+				+transform(rotate(0deg))
