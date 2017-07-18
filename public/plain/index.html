@@ -90,16 +90,16 @@
               <form id="contact-form" data-url="/ajax/app.php">
                 <div class="Form-message">
                   <div class="Form-message--success">
-                    <h3>Vielen dank</h3>
-                    <p>Wir haben Ihre Anfrage erhalten und werden uns umgehend bei Ihnen melden.</p>
+                    <h3>Vielen Dank</h3>
+                    <p>Deine Anmeldung ist raus.</p>
                   </div>
                   <div class="Form-message--error">
-                    <h3>es tut uns leid</h3>
-                    <p>Aufgrund eines technischen Fehlers konnte Ihre Anfrage nicht versendet werden. Bitte versuchen Sie es zu einem späteren Zeitpunkt erneut.</p>
+                    <h3>Uuups, sorry.</h3>
+                    <p>Aufgrund eines technischen Fehlers konnte die Anmeldung nicht versendet werden. Bitte versuche es zu einem späteren Zeitpunkt nochmal.</p>
                   </div>
                   <div class="Form-message--invalid">
                     <h3></h3>
-                    <p>Bitte überprüfen Sie Ihre Eingaben in den markierten Feldern.</p>
+                    <p>Bitte überprüfe Deine Eingaben in den markierten Feldern.</p>
                   </div>
                 </div>
                 <div class="Form-body">
@@ -107,34 +107,28 @@
                     <label for="emailvalidation">Email Validation</label>
                     <input title="emailvalidation" type="emailvalidation" name="emailvalidation" placeholder="">
                   </div>
-                  <div class="Form-element Form-element--full">
-                    <label for="name">Ihr Name *</label>
+                  <div class="Form-element Form-element--half">
+                    <label for="vorname">Vorname *</label>
                     <div>
-                      <input title="Ihr Name" type="text" name="name" placeholder="Bitte angeben" required>
+                      <input title="Vorname" type="text" name="vorname" placeholder="Bitte angeben" required>
+                    </div>
+                  </div>
+                  <div class="Form-element Form-element--half">
+                    <label for="nachname">Nachname *</label>
+                    <div>
+                      <input title="Nachname" type="text" name="nachname" placeholder="Bitte angeben" required>
                     </div>
                   </div>
                   <div class="Form-element Form-element--full">
-                    <label for="company">Firma</label>
+                    <label for="email">E-Mail-Adresse *</label>
                     <div>
-                      <input title="Firma" type="text" name="company" placeholder="Optional">
+                      <input title="E-Mail-Adresse" type="text" name="email" placeholder="Bitte angeben" required>
                     </div>
                   </div>
                   <div class="Form-element Form-element--full">
-                    <label for="telefon">Telefon *</label>
+                    <label for="count">Anzahl Personen *</label>
                     <div>
-                      <input title="Telefon" type="text" name="telefon" placeholder="Bitte angeben" required>
-                    </div>
-                  </div>
-                  <div class="Form-element Form-element--full">
-                    <label for="email">Ihre E-Mail-Adresse *</label>
-                    <div>
-                      <input title="Ihre E-Mail-Adresse" type="text" name="email" placeholder="Bitte angeben" required>
-                    </div>
-                  </div>
-                  <div class="Form-element Form-element--full">
-                    <label for="nachricht">Ihre Nachricht</label>
-                    <div>
-                      <textarea title="Ihre Nachricht" type="text" name="nachricht" placeholder="Optional"></textarea>
+                      <input title="Anzahl Personen" type="text" name="count" placeholder="Bitte angeben" required>
                     </div>
                   </div>
                   <div class="Form-submit">
@@ -148,7 +142,7 @@
       </div>
     </div>
     <div class="Footer" id="footer"></div>
-    <script src="/assets/loader.js" type="text/javascript"></script>
+    <script src="assets/loader.js" type="text/javascript"></script>
     <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
       function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;

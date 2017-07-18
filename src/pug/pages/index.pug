@@ -13,15 +13,15 @@ block content
 					var form = {
 						messages: {
 							success: {
-								headline: "Vielen dank",
-								copy: "Wir haben Ihre Anfrage erhalten und werden uns umgehend bei Ihnen melden."
+								headline: "Vielen Dank",
+								copy: "Deine Anmeldung ist raus."
 							},
 							error: {
-								headline: "es tut uns leid",
-								copy: "Aufgrund eines technischen Fehlers konnte Ihre Anfrage nicht versendet werden. Bitte versuchen Sie es zu einem späteren Zeitpunkt erneut."
+								headline: "Uuups, sorry.",
+								copy: "Aufgrund eines technischen Fehlers konnte die Anmeldung nicht versendet werden. Bitte versuche es zu einem späteren Zeitpunkt nochmal."
 							},
 							invalid: {
-								copy: "Bitte überprüfen Sie Ihre Eingaben in den markierten Feldern."
+								copy: "Bitte überprüfe Deine Eingaben in den markierten Feldern."
 								}
 						},
 						fields: [
@@ -30,11 +30,13 @@ block content
 							// { type: "input", variable: "city", label: "PLZ, Stadt.",  style: "full" },
 							// { type: "checkbox", variable: "interest", label: "Ich interessiere mich für", values:[{value:'Gartenwohnung', label:'Gartenwohnung'},{value:'Geschosswohnung', label:'Geschosswohnung'},{value:'Penthouse', label:'Penthouse Wohnung'}], required: "true", style: "full" }
 							// ,{ type: "dropdown", variable: "company", label: "Formular verschicken an:", values:[{value:'info@karolinger-wohnen.de', label:'Karolinger', variable:"emailTo"},{value:'interactive@cadman.de', label:'CADMAN', variable:'emailTo'}], style: "full", placeholder: "Bitte wählen" },
-							{ type: "input", variable: "name", label: "Ihr Name", required: "true", style: "full" },
-							{ type: "input", variable: "company", label: "Firma", style: "full" },
-							{ type: "input", variable: "telefon", label: "Telefon", style: "full", required: "true"},
-							{ type: "input", variable: "email", label: "Ihre E-Mail-Adresse", required: "true", style: "full" },
-							{ type: "textarea", variable: "nachricht", label: "Ihre Nachricht",  style: "full" }
+							{ type: "input", variable: "vorname", label: "Vorname", required: "true", style: "half" },
+							{ type: "input", variable: "nachname", label: "Nachname", required: "true", style: "half" },
+							// { type: "input", variable: "company", label: "Firma", style: "full" },
+							// { type: "input", variable: "telefon", label: "Telefon", style: "full", required: "true"},
+							{ type: "input", variable: "email", label: "E-Mail-Adresse", required: "true", style: "full" },
+							{ type: "input", variable: "count", label: "Anzahl Personen", required: "true", style: "full" }
+							// { type: "textarea", variable: "nachricht", label: "Ihre Nachricht",  style: "full" }
 						]
 					}
 				form#contact-form(data-url="/ajax/app.php")

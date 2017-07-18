@@ -130,7 +130,7 @@ let Form = Base.extend({
 
 	_handleFormSubmitClick: function(event){
 
-		// console.log("handleFormSubmitClick", event);
+		console.log("handleFormSubmitClick", event);
 
 		event.preventDefault();
 
@@ -233,6 +233,7 @@ let Form = Base.extend({
 		});
 
 		if(errors.length > 0){
+			console.log(errors);
 			that._scrollToTop(form);
 			form.classList.add(invalidClass);
 			_.each(errors, function(erroritem){
@@ -276,6 +277,7 @@ let Form = Base.extend({
 				that._scrollToTop(form);
 
 			}, function(error){
+				console.log(error);
 				form.classList.add(errorClass);
 				that._scrollToTop(form);
 			});

@@ -27015,12 +27015,8 @@ var Content = _ampersandModel2.default.extend({
 				action: ["string", true, "contactForm/sendMessage"],
 				fields: ["object", true, function () {
 						return {
-								author: "CADMAN"
-								// emailTo: "f.krueger@zabel.com",
-								// emailCc: "b.passlack@zabel.com",
-								// emailBcc: "wix@cadman.de, interactive@cadman.de",
-								// emailFrom: "no-reply@thefritz-berlin.com",
-								// subject: "Web Kontakt Anfrage The Fritz:",
+								author: "YOLO",
+								emailvalidation: ""
 						};
 				}],
 				error: ["boolean", false, false],
@@ -27041,19 +27037,20 @@ var Content = _ampersandModel2.default.extend({
 		},
 
 		send: function send(attrs) {
-				console.log("form send");
 				var that = this;
 				if (attrs) {
 						this.set(attrs);
 				}
 				this.isSending = true;
+				console.log(_qs2.default.stringify(that.fields));
 
 				return new _es6Promise.Promise(function (resolve, reject) {
 						that._request = _ampersandSync2.default.call(that, "create", that, {
 								data: _qs2.default.stringify(that.fields),
 								// url: "/ajax/sendmail",
-								url: "/ajaxform/sendEmail.php",
+								url: "ajaxform/sendEmail.php",
 								error: function error(resp, state, msg) {
+
 										that.isSending = false;
 										reject(new Error(msg));
 								},
@@ -27061,8 +27058,10 @@ var Content = _ampersandModel2.default.extend({
 										that.isSending = false;
 										if (resp.success) {
 												that.success = true;
+												console.log(resp);
 												resolve(that);
 										} else if (resp.error) {
+												console.log("error");
 												that.error = resp.error;
 												reject(new Error("The message did not validate."));
 										}
@@ -27225,7 +27224,7 @@ var Form = _base2.default.extend({
 
 	_handleFormSubmitClick: function _handleFormSubmitClick(event) {
 
-		// console.log("handleFormSubmitClick", event);
+		console.log("handleFormSubmitClick", event);
 
 		event.preventDefault();
 
@@ -27336,6 +27335,7 @@ var Form = _base2.default.extend({
 		});
 
 		if (errors.length > 0) {
+			console.log(errors);
 			that._scrollToTop(form);
 			form.classList.add(invalidClass);
 			_lodash2.default.each(errors, function (erroritem) {
@@ -27378,6 +27378,7 @@ var Form = _base2.default.extend({
 
 				that._scrollToTop(form);
 			}, function (error) {
+				console.log(error);
 				form.classList.add(errorClass);
 				that._scrollToTop(form);
 			});

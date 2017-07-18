@@ -3481,7 +3481,7 @@ var Loader = function () {
 		window.CM.Loader = this;
 
 		head.ready(document, function () {
-			head.load(["//fonts.googleapis.com/css?family=Maven+Pro:400,700", "/assets/app.css", "/assets/app.js"], CM.Loader.startApplication);
+			head.load(["//fonts.googleapis.com/css?family=Maven+Pro:400,700", "assets/app.css", "assets/app.js"], CM.Loader.startApplication);
 		});
 	}
 

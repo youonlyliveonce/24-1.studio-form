@@ -16,12 +16,8 @@ let Content = Model.extend({
 				action: ["string", true, "contactForm/sendMessage"],
 				fields: ["object", true, function(){
 					return {
-							author: "CADMAN",
-							// emailTo: "f.krueger@zabel.com",
-							// emailCc: "b.passlack@zabel.com",
-							// emailBcc: "wix@cadman.de, interactive@cadman.de",
-							// emailFrom: "no-reply@thefritz-berlin.com",
-							// subject: "Web Kontakt Anfrage The Fritz:",
+							author: "YOLO",
+							emailvalidation: ""
 					}
 				}],
 				error: ["boolean", false, false],
@@ -42,19 +38,20 @@ let Content = Model.extend({
 		},
 
 		send: function (attrs) {
-				console.log("form send");
 				let that = this;
 				if (attrs) {
 						this.set(attrs);
 				}
 				this.isSending = true;
+				console.log(qs.stringify(that.fields));
 
 				return new Promise(function (resolve, reject) {
 						that._request = sync.call(that, "create", that, {
 								data: qs.stringify(that.fields),
 								// url: "/ajax/sendmail",
-								url: "/ajaxform/sendEmail.php",
+								url: "ajaxform/sendEmail.php",
 								error: function (resp, state, msg) {
+
 										that.isSending = false;
 										reject(new Error(msg));
 								},
@@ -62,8 +59,10 @@ let Content = Model.extend({
 										that.isSending = false;
 										if (resp.success) {
 												that.success = true;
+												console.log(resp);
 												resolve(that);
 										} else if (resp.error) {
+												console.log("error");
 												that.error = resp.error;
 												reject(new Error("The message did not validate."));
 										}

@@ -13,8 +13,10 @@
     "development": "gulp",
     "production": "gulp production",
     "dom": "gulp pug",
-		"init": "git-ftp init --syncroot public -u matteng_de_9  -P - ftp://kontentftp.matteng.de/studio-form/htdocs",
-    "push": "git-ftp push --syncroot public -u matteng_de_9  -P - ftp://kontentftp.matteng.de/studio-form/htdocs"
+    "init": "git-ftp init --syncroot public -u matteng_de_9  -P - ftp://kontentftp.matteng.de/studio-form/htdocs",
+    "push": "git-ftp push --syncroot public -u matteng_de_9  -P - ftp://kontentftp.matteng.de/studio-form/htdocs",
+    "initlive": "git-ftp init --syncroot public/plain -u u61206160-matteng  -P - ftp://home349300007.1and1-data.host/atelier/form",
+    "pushlive": "git-ftp push --syncroot public/plain -u u61206160-matteng  -P - ftp://home349300007.1and1-data.host/atelier/form"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
