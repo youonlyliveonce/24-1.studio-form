@@ -5,7 +5,7 @@ var getEnabledTasks = require('../lib/getEnabledTasks')
 
 var productionTask = function(cb) {
   var tasks = getEnabledTasks('production')
-  gulpSequence( tasks.assetTasks, tasks.codeTasks, tasks.productionTasks, cb)
+  gulpSequence( tasks.codeTasks, tasks.productionTasks, cb)
 }
 
 gulp.task('production', productionTask)
